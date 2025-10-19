@@ -1,0 +1,129 @@
+Create a setup wizard flow with multiple screens to set up a genealogy web application.
+
+# The first screen: 
+Language selection with American English as default.
+
+# The next screen: 
+Checking server configuration
+The server configuration is OK.
+
+Checking server capacity
+The memory and CPU time requirements depend on the number of individuals in your family tree.
+
+The following list shows typical requirements.
+
+Small systems (500 individuals): 16–32 MB, 10–20 seconds
+Medium systems (5,000 individuals): 32–64 MB, 20–40 seconds
+Large systems (50,000 individuals): 64–128 MB, 40–80 seconds
+
+This server’s memory limit is 128 MB and its CPU time limit is 30 seconds.
+
+If you try to exceed these limits, you may experience server time-outs and blank pages.
+
+# The next screen:
+Connection to database server
+webtrees needs a database to store your genealogy data.
+
+Database type
+MySQL / MariaDB
+SQLite
+PostgreSQL
+SQL Server
+
+# The next screen: 
+database setup (depends on the database type selcted in the previous screen)
+For example for MySQL:
+Database connection – MySQL / MariaDB / Percona
+Connection type
+local
+localhost:/tmp/mysql.sock
+network
+Server name
+Port number
+3306
+Database user account:
+Database password:
+Database name:
+Table prefix: wt_
+The prefix is optional, but recommended. By giving the table names a unique prefix you can let several different applications share the same database. Use letters A-Z, a-z, digits 0-9, or underscores
+
+# The next screen:
+
+For SQLite:
+Database connection – SQLite
+SQLite is only suitable for small sites, testing and evaluation.
+
+Database name
+/Users/miron/Dev/webtrees/data/
+.sqlite
+Use letters A-Z, a-z, digits 0-9, or underscores
+Table prefix: wt_
+The prefix is optional, but recommended. By giving the table names a unique prefix you can let several different applications share the same database. Use letters A-Z, a-z, digits 0-9, or underscores
+
+# The next screen:
+Administrator account
+SQLite is only suitable for small sites, testing and evaluation.
+
+You need to set up an administrator account. This account can control all aspects of this webtrees installation. Please choose a strong password.
+
+Your name
+This is your real name, as you would like it displayed on screen.
+Username
+You will use this to sign in to webtrees.
+Password
+This must be at least six characters long. It is case-sensitive.
+Email address
+This email address will be used to send password reminders, website notifications, and messages from other family members who are registered on the website.
+
+# The next screen:
+Create a family tree
+Family tree title
+My family tree
+URL
+http://localhost:8080/index.php?route=/tree/
+tree1
+/�_�
+Avoid spaces and punctuation. A family name might be a good choice.
+After creating the family tree, you will be able to import data from a GEDCOM file.
+
+# Final screen:
+The control dashboard
+
+Top menu/navbar: My page, Language, Sign out
+success message: The family tree “tree1” has been created.
+breadcrumb: Control panel / Manage family trees
+Title: Manage family trees
+
+Sub title: tree1 — My family tree
+
+Column 1 title: Family tree
+Home page
+Preferences
+Privacy
+Data fixes
+
+Column 2 title: Genealogy data
+Find duplicates
+Merge records
+Check for errors
+Find unrelated individuals
+Renumber XREFs
+Changes log
+
+Column 3 title: Add unlinked records
+Individual
+Source
+Repository
+Media object
+Shared note
+Submitter
+
+Column 4 title: GEDCOM file
+Export
+Import
+
+# Code requirements
+The backend should be nest.js.
+The front end should be Vue based, with Bootstrap or Tailwind css.
+The look is modern and flat.
+The top nav bar is fixed even when scrolling.

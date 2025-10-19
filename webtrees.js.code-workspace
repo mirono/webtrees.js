@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../webtrees"
+		},
+		{
+			"path": "../algo_pair_js"
+		}
+	],
+	"settings": {}
+}
