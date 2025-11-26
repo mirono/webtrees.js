@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Progress } from "@/components/ui/progress";
 import LanguageSelection from "./wizard/LanguageSelection";
 import ServerConfiguration from "./wizard/ServerConfiguration";
-import DatabaseType from "./wizard/DatabaseType";
+import DatabaseTypeStep from "./wizard/DatabaseType";
 import DatabaseConfig from "./wizard/DatabaseConfig";
 import AdminAccount from "./wizard/AdminAccount";
 import FamilyTree from "./wizard/FamilyTree";
@@ -36,11 +36,16 @@ export interface SetupData {
   };
 }
 
-export { type DatabaseType };
+
 
 const TOTAL_STEPS = 7;
 
-const SetupWizard = () => {
+interface SetupWizardProps {
+  onSaveConfig?: (data: any) => void;
+  onEnterApp?: () => void;
+}
+
+const SetupWizard = ({ onSaveConfig, onEnterApp }: SetupWizardProps) => {
   const [currentStep, setCurrentStep] = useState(1);
   const {
     configuration,
@@ -57,6 +62,13 @@ const SetupWizard = () => {
     if (data) {
       updatePartialConfiguration(data);
     }
+
+    if (currentStep === 6) {
+      // Save configuration when finishing step 6 (FamilyTree)
+      const finalConfig = { ...configuration, ...data };
+      onSaveConfig?.(finalConfig);
+    }
+
     setCurrentStep((prev) => Math.min(prev + 1, TOTAL_STEPS));
   };
 
@@ -68,28 +80,23 @@ const SetupWizard = () => {
     switch (currentStep) {
       case 1:
         return (
-          <LanguageSelection 
-            onNext={handleNext} 
+          <LanguageSelection
+            onNext={handleNext}
             defaultLanguage={configuration.language}
-            validationErrors={validationErrors.language}
           />
         );
       case 2:
         return (
-          <ServerConfiguration 
-            onNext={handleNext} 
+          <ServerConfiguration
+            onNext={handleNext}
             onBack={handleBack}
-            initialData={configuration.serverConfig}
-            validationErrors={validationErrors.serverConfig}
           />
         );
       case 3:
         return (
-          <DatabaseType 
-            onNext={handleNext} 
+          <DatabaseTypeStep
+            onNext={handleNext}
             onBack={handleBack}
-            selectedType={configuration.databaseType}
-            validationErrors={validationErrors.databaseType}
           />
         );
       case 4:
@@ -99,32 +106,28 @@ const SetupWizard = () => {
             onNext={handleNext}
             onBack={handleBack}
             initialData={configuration.databaseConfig}
-            validationErrors={validationErrors.databaseConfig}
           />
         );
       case 5:
         return (
-          <AdminAccount 
-            onNext={handleNext} 
+          <AdminAccount
+            onNext={handleNext}
             onBack={handleBack}
-            initialData={configuration.admin}
-            validationErrors={validationErrors.admin}
           />
         );
       case 6:
         return (
-          <FamilyTree 
-            onNext={handleNext} 
+          <FamilyTree
+            onNext={handleNext}
             onBack={handleBack}
-            initialData={configuration.familyTree}
-            validationErrors={validationErrors.familyTree}
           />
         );
       case 7:
         return (
-          <Dashboard 
+          <Dashboard
             configuration={configuration}
             configurationSummary={getConfigurationSummary()}
+            onEnterApp={onEnterApp}
           />
         );
       default:
@@ -147,7 +150,7 @@ const SetupWizard = () => {
           </div>
         </div>
       )}
-      
+
       <div className={currentStep < 7 ? "pt-24" : ""}>
         {renderStep()}
       </div>

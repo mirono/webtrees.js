@@ -1,6 +1,6 @@
 
-import SetupWizard from "@/components/SetupWizard";
+import AppWrapper from "@/components/AppWrapper";
 
 export default function Home() {
-  return <SetupWizard />;
+  return <AppWrapper />;
 }

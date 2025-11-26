@@ -119,7 +119,7 @@ const ServerConfiguration = ({ onNext, onBack }: ServerConfigurationProps) => {
               <Button onClick={onBack} variant="outline" className="flex-1">
                 Back
               </Button>
-              <Button onClick={onNext} disabled={checking} className="flex-1">
+              <Button onClick={() => onNext()} disabled={checking} className="flex-1">
                 {checking ? "Checking..." : "Continue"}
               </Button>
             </div>

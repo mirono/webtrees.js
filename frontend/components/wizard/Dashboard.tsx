@@ -8,6 +8,9 @@ interface DashboardProps {
     title: string;
     url: string;
   };
+  onEnterApp?: () => void;
+  configuration?: any;
+  configurationSummary?: any;
 }
 
 const menuSections = [
@@ -36,7 +39,7 @@ const menuSections = [
   },
 ];
 
-const Dashboard = ({ familyTreeData }: DashboardProps) => {
+const Dashboard = ({ familyTreeData, onEnterApp }: DashboardProps) => {
   return (
     <div className="min-h-screen bg-background">
       {/* Fixed Navbar */}
@@ -80,11 +83,19 @@ const Dashboard = ({ familyTreeData }: DashboardProps) => {
             <span className="text-foreground">Manage family trees</span>
           </div>
 
-          {/* Title */}
-          <h2 className="text-3xl font-bold text-foreground mb-2">Manage family trees</h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            {familyTreeData?.url || "tree1"} — {familyTreeData?.title || "My family tree"}
-          </p>
+          <div className="flex justify-between items-center mb-2">
+            <h2 className="text-3xl font-bold text-foreground">Manage family trees</h2>
+          </div>
+
+          <div
+            className="text-xl text-muted-foreground mb-8 cursor-pointer hover:text-primary transition-colors inline-flex items-center gap-2"
+            onClick={onEnterApp}
+          >
+            <span className="underline decoration-dotted underline-offset-4">
+              {familyTreeData?.url || "tree1"} — {familyTreeData?.title || "My family tree"}
+            </span>
+            <ChevronRight className="h-5 w-5" />
+          </div>
 
           {/* Menu Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
