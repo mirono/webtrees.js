@@ -8,6 +8,7 @@ async function bootstrap() {
       prefix: 'webtrees', // Default is "Nest"
     }),
   });
+  app.setGlobalPrefix('api');
   app.enableCors();
   await app.listen(process.env.PORT ?? 3001);
 }

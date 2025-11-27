@@ -15,7 +15,7 @@ const AppWrapper = () => {
 
     const checkConfiguration = async () => {
         try {
-            const response = await fetch('http://localhost:3001/config/status');
+            const response = await fetch('http://localhost:3001/api/config/status');
             const data = await response.json();
             setIsConfigured(data.isConfigured);
         } catch (error) {
@@ -29,7 +29,7 @@ const AppWrapper = () => {
 
     const saveConfiguration = async (configData: any) => {
         try {
-            const response = await fetch('http://localhost:3001/config/setup', {
+            const response = await fetch('http://localhost:3001/api/config/setup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
