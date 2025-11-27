@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import LoginDialog from "@/components/auth/LoginDialog";
 import {
     Sun,
     Moon,
@@ -62,10 +63,14 @@ const Home = () => {
                                 <span className="hidden sm:inline">Language</span>
                             </Button>
 
-                            <Button variant="ghost" size="sm">
-                                <LogIn className="h-4 w-4 mr-2" />
-                                <span className="hidden sm:inline">Sign in</span>
-                            </Button>
+                            <LoginDialog
+                                trigger={
+                                    <Button variant="ghost" size="sm">
+                                        <LogIn className="h-4 w-4 mr-2" />
+                                        <span className="hidden sm:inline">Sign in</span>
+                                    </Button>
+                                }
+                            />
 
                             <Button variant="ghost" size="sm">
                                 <Search className="h-4 w-4" />
@@ -237,9 +242,12 @@ const Home = () => {
                                         Sign in
                                     </Button>
 
-                                    <div className="text-center">
-                                        <Button variant="link" size="sm" className="text-xs">
+                                    <div className="flex flex-col items-center gap-1">
+                                        <Button variant="link" size="sm" className="text-xs h-auto p-0">
                                             Forgot password?
+                                        </Button>
+                                        <Button variant="link" size="sm" className="text-xs h-auto p-0 text-primary">
+                                            Request a new user account
                                         </Button>
                                     </div>
                                 </CardContent>
