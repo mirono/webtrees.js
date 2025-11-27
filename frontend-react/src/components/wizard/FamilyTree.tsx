@@ -8,9 +8,11 @@ import { TreePine } from "lucide-react";
 interface FamilyTreeProps {
   onNext: (data: any) => void;
   onBack: () => void;
+  isSubmitting?: boolean;
+  error?: string | null;
 }
 
-const FamilyTree = ({ onNext, onBack }: FamilyTreeProps) => {
+const FamilyTree = ({ onNext, onBack, isSubmitting, error }: FamilyTreeProps) => {
   const [title, setTitle] = useState("My family tree");
   const [url, setUrl] = useState("tree1");
 
@@ -75,12 +77,18 @@ const FamilyTree = ({ onNext, onBack }: FamilyTreeProps) => {
               </p>
             </div>
 
+            {error && (
+              <div className="p-4 bg-destructive/10 text-destructive rounded-lg border border-destructive/20">
+                {error}
+              </div>
+            )}
+
             <div className="flex gap-3 pt-4">
-              <Button onClick={onBack} variant="outline" className="flex-1">
+              <Button onClick={onBack} variant="outline" className="flex-1" disabled={isSubmitting}>
                 Back
               </Button>
-              <Button onClick={handleSubmit} className="flex-1">
-                Create Family Tree
+              <Button onClick={handleSubmit} className="flex-1" disabled={isSubmitting}>
+                {isSubmitting ? "Creating..." : "Create Family Tree"}
               </Button>
             </div>
           </CardContent>

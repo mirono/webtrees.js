@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CheckCircle2, ChevronRight, Globe, LogOut } from "lucide-react";
+import GedcomImport from "../gedcom/GedcomImport";
 
 interface DashboardProps {
   familyTreeData?: {
@@ -40,10 +42,31 @@ const menuSections = [
 ];
 
 const Dashboard = ({ familyTreeData, onEnterApp }: DashboardProps) => {
+  const [activeView, setActiveView] = useState<string>("dashboard");
+
+  const handleMenuClick = (item: string) => {
+    if (item === "Import") {
+      setActiveView("gedcom-import");
+    }
+  };
+
+  const handleBackToDashboard = () => {
+    setActiveView("dashboard");
+  };
+
+  if (activeView === "gedcom-import") {
+    return (
+      <GedcomImport
+        onBack={handleBackToDashboard}
+        treeName={familyTreeData?.title || "My family tree"}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background">
       {/* Fixed Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-card border-b border-border shadow-sm">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-card text-card-foreground border-b border-border shadow-sm">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <h1 className="text-xl font-bold text-foreground">webtrees</h1>
@@ -112,6 +135,7 @@ const Dashboard = ({ familyTreeData, onEnterApp }: DashboardProps) => {
                           variant="ghost"
                           className="w-full justify-start text-left font-normal hover:bg-muted"
                           size="sm"
+                          onClick={() => handleMenuClick(item)}
                         >
                           {item}
                         </Button>
