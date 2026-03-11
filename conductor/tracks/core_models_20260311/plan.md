@@ -9,11 +9,11 @@
     - [x] Add basic tests for the `Family` entity
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Core Data Models' (Protocol in workflow.md) [938f916]
 
-## Phase 2: API Endpoints
+## Phase 2: API Endpoints [checkpoint: 458d9fb]
 - [x] Task: Backend - Individual controller & service [eed942c]
-    - [ ] Implement `getIndividualById` and `getAllIndividuals` endpoints
-    - [ ] Add unit tests for the controller and service
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: API Endpoints' (Protocol in workflow.md)
+    - [x] Implement `getIndividualById` and `getAllIndividuals` endpoints
+    - [x] Add unit tests for the controller and service
+- [x] Task: Conductor - User Manual Verification 'Phase 2: API Endpoints' (Protocol in workflow.md) [458d9fb]
 
 ## Phase 3: Frontend Individual View
 - [ ] Task: Frontend - Individual Profile Page
