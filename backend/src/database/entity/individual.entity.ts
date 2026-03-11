@@ -1,5 +1,6 @@
 import { IndividualName } from './individual_name.entity';
 import { IndividualEvent } from './individual_event.entity';
+import { FamilyLink } from './family_link.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity('individuals')
@@ -21,4 +22,7 @@ export class Individual {
 
     @OneToMany(() => IndividualEvent, e => e.individual)
     events?: IndividualEvent[];
+
+    @OneToMany(() => FamilyLink, l => l.individual)
+    links?: FamilyLink[];
 }

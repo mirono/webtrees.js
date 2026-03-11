@@ -20,7 +20,7 @@ export class FamilyLink {
     @JoinColumn({ name: 'family_id' })
     family: Family;
 
-    @ManyToOne(() => Individual)
+    @ManyToOne(() => Individual, i => i.links)
     @JoinColumn({ name: 'individual_id' })
     individual: Individual;
 }

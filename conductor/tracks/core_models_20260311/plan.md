@@ -16,7 +16,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: API Endpoints' (Protocol in workflow.md) [458d9fb]
 
 ## Phase 3: Frontend Individual View
-- [ ] Task: Frontend - Individual Profile Page
+- [~] Task: Frontend - Individual Profile Page
     - [ ] Create a dynamic route `/individuals/[id]` to display individual details
     - [ ] Implement data fetching using TanStack Query
     - [ ] Design a simple layout for individual information (name, dates, family)

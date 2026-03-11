@@ -18,7 +18,7 @@ export class IndividualsService {
         // id here is gedcom_id (the XREF)
         return repository.findOne({
             where: { gedcom_id: id },
-            relations: ['names', 'events']
+            relations: ['names', 'events', 'links', 'links.family', 'links.individual']
         });
     }
 }

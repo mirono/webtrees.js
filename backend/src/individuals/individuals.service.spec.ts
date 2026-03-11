@@ -58,7 +58,7 @@ describe('IndividualsService', () => {
         expect(result).toEqual(individual);
         expect(mockRepository.findOne).toHaveBeenCalledWith({
             where: { gedcom_id: 'I1' },
-            relations: ['names', 'events']
+            relations: ['names', 'events', 'links', 'links.family', 'links.individual']
         });
     });
 });
