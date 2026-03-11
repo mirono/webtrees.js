@@ -15,9 +15,9 @@
     - [x] Add unit tests for the controller and service
 - [x] Task: Conductor - User Manual Verification 'Phase 2: API Endpoints' (Protocol in workflow.md) [458d9fb]
 
-## Phase 3: Frontend Individual View
+## Phase 3: Frontend Individual View [checkpoint: fc44092]
 - [x] Task: Frontend - Individual Profile Page [8c84b91]
-    - [ ] Create a dynamic route `/individuals/[id]` to display individual details
-    - [ ] Implement data fetching using TanStack Query
-    - [ ] Design a simple layout for individual information (name, dates, family)
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Frontend Individual View' (Protocol in workflow.md)
+    - [x] Create a dynamic route `/individuals/[id]` to display individual details
+    - [x] Implement data fetching using TanStack Query
+    - [x] Design a simple layout for individual information (name, dates, family)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Frontend Individual View' (Protocol in workflow.md) [fc44092]
