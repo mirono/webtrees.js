@@ -1,26 +1,24 @@
-import { GedcomEvent } from './gedcom_event.entity';
-import { Entity, Column, Index, PrimaryColumn, ManyToOne } from 'typeorm';
+import { IndividualName } from './individual_name.entity';
+import { IndividualEvent } from './individual_event.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity('individuals')
 export class Individual {
-    @PrimaryColumn()
-    id: string; // GEDCOM XREF
+    @PrimaryGeneratedColumn()
+    id: number;
 
-    @Index()
-    @Column({ nullable: true })
-    given_name?: string;
+    @Column({ unique: true })
+    gedcom_id: string; // GEDCOM XREF
 
-    @Index()
-    @Column({ nullable: true })
-    surname?: string;
+    @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
+    updated_at: Date;
 
-    @Column({ nullable: true })
-    gender?: string; // M / F / U
+    @Column({ default: 0 })
+    version: number;
 
-    @ManyToOne(() => GedcomEvent, { nullable: true })
-    birth_event?: GedcomEvent;
+    @OneToMany(() => IndividualName, n => n.individual)
+    names?: IndividualName[];
 
-    @ManyToOne(() => GedcomEvent, { nullable: true })
-    death_event?: GedcomEvent;
-
+    @OneToMany(() => IndividualEvent, e => e.individual)
+    events?: IndividualEvent[];
 }

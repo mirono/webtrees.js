@@ -1,24 +1,28 @@
 import { Individual } from './individual.entity';
+import { IndividualName } from './individual_name.entity';
 
 describe('Individual Entity', () => {
     it('should create an individual with standard fields', () => {
         const individual = new Individual();
-        individual.id = 'I1';
-        individual.given_name = 'John';
-        individual.surname = 'Doe';
-        individual.gender = 'M';
+        individual.id = 1;
+        individual.gedcom_id = 'I1';
 
-        expect(individual.id).toBe('I1');
-        expect(individual.given_name).toBe('John');
-        expect(individual.surname).toBe('Doe');
-        expect(individual.gender).toBe('M');
+        const name = new IndividualName();
+        name.given = 'John';
+        name.surname = 'Doe';
+        name.full = 'John Doe';
+        individual.names = [name];
+
+        expect(individual.id).toBe(1);
+        expect(individual.gedcom_id).toBe('I1');
+        expect(individual.names).toHaveLength(1);
+        expect(individual.names[0].given).toBe('John');
     });
 
-    it('should allow optional birth and death events', () => {
+    it('should allow optional events', () => {
         const individual = new Individual();
-        individual.id = 'I1';
+        individual.id = 1;
         
-        expect(individual.birth_event).toBeUndefined();
-        expect(individual.death_event).toBeUndefined();
+        expect(individual.events).toBeUndefined();
     });
 });

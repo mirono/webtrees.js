@@ -1,43 +1,30 @@
 import { Family } from './family.entity';
+import { FamilyLink } from './family_link.entity';
 import { Individual } from './individual.entity';
 
 describe('Family Entity', () => {
-    it('should create a family with husband and wife', () => {
+    it('should create a family with links', () => {
         const family = new Family();
-        family.id = 'F1';
+        family.id = 1;
+        family.gedcom_id = 'F1';
         
-        const husband = new Individual();
-        husband.id = 'I1';
-        husband.given_name = 'John';
-        husband.surname = 'Doe';
-        husband.gender = 'M';
+        const husbandLink = new FamilyLink();
+        husbandLink.role = 'HUSB';
+        husbandLink.individual = new Individual();
+        husbandLink.individual.id = 1;
+        husbandLink.individual.gedcom_id = 'I1';
 
-        const wife = new Individual();
-        wife.id = 'I2';
-        wife.given_name = 'Jane';
-        wife.surname = 'Doe';
-        wife.gender = 'F';
+        const wifeLink = new FamilyLink();
+        wifeLink.role = 'WIFE';
+        wifeLink.individual = new Individual();
+        wifeLink.individual.id = 2;
+        wifeLink.individual.gedcom_id = 'I2';
 
-        family.husband = husband;
-        family.wife = wife;
+        family.links = [husbandLink, wifeLink];
 
-        expect(family.id).toBe('F1');
-        expect(family.husband.id).toBe('I1');
-        expect(family.wife.id).toBe('I2');
-    });
-
-    it('should allow adding children to a family', () => {
-        const family = new Family();
-        family.id = 'F1';
-
-        const child = new Individual();
-        child.id = 'I3';
-        child.given_name = 'Junior';
-        child.surname = 'Doe';
-
-        family.children = [child];
-
-        expect(family.children).toHaveLength(1);
-        expect(family.children[0].id).toBe('I3');
+        expect(family.id).toBe(1);
+        expect(family.gedcom_id).toBe('F1');
+        expect(family.links).toHaveLength(2);
+        expect(family.links.find(l => l.role === 'HUSB')?.individual?.gedcom_id).toBe('I1');
     });
 });

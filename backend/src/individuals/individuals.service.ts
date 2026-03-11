@@ -9,12 +9,16 @@ export class IndividualsService {
     async findAll(): Promise<Individual[]> {
         const dataSource = this.databaseService.getDataSource();
         const repository = dataSource.getRepository(Individual);
-        return repository.find();
+        return repository.find({ relations: ['names', 'events'] });
     }
 
     async findOne(id: string): Promise<Individual | null> {
         const dataSource = this.databaseService.getDataSource();
         const repository = dataSource.getRepository(Individual);
-        return repository.findOneBy({ id });
+        // id here is gedcom_id (the XREF)
+        return repository.findOne({
+            where: { gedcom_id: id },
+            relations: ['names', 'events']
+        });
     }
 }

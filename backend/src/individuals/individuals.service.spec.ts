@@ -9,6 +9,7 @@ describe('IndividualsService', () => {
 
     const mockRepository = {
         find: jest.fn(),
+        findOne: jest.fn(),
         findOneBy: jest.fn(),
     };
 
@@ -45,16 +46,19 @@ describe('IndividualsService', () => {
 
         const result = await service.findAll();
         expect(result).toEqual(individuals);
-        expect(mockRepository.find).toHaveBeenCalled();
+        expect(mockRepository.find).toHaveBeenCalledWith({ relations: ['names', 'events'] });
     });
 
-    it('should return a single individual by id', async () => {
+    it('should return a single individual by id (gedcom_id)', async () => {
         const individual = new Individual();
-        individual.id = 'I1';
-        mockRepository.findOneBy.mockResolvedValue(individual);
+        individual.gedcom_id = 'I1';
+        mockRepository.findOne.mockResolvedValue(individual);
 
         const result = await service.findOne('I1');
         expect(result).toEqual(individual);
-        expect(mockRepository.findOneBy).toHaveBeenCalledWith({ id: 'I1' });
+        expect(mockRepository.findOne).toHaveBeenCalledWith({
+            where: { gedcom_id: 'I1' },
+            relations: ['names', 'events']
+        });
     });
 });

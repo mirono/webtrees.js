@@ -1,23 +1,20 @@
-import { Individual } from './individual.entity';
-import { Entity, Column, PrimaryColumn, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
+import { FamilyLink } from './family_link.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity('families')
 export class Family {
-    @PrimaryColumn()
-    id: string;
+    @PrimaryGeneratedColumn()
+    id: number;
 
-    @ManyToOne(() => Individual, { nullable: true })
-    husband?: Individual;
+    @Column({ unique: true })
+    gedcom_id: string; // GEDCOM XREF
 
-    @ManyToOne(() => Individual, { nullable: true })
-    wife?: Individual;
+    @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
+    updated_at: Date;
 
-    @ManyToMany(() => Individual)
-    @JoinTable({
-        name: 'family_children',
-        joinColumn: { name: 'family_id', referencedColumnName: 'id' },
-        inverseJoinColumn: { name: 'child_id', referencedColumnName: 'id' }
-    })
-    children?: Individual[];
+    @Column({ default: 0 })
+    version: number;
 
+    @OneToMany(() => FamilyLink, l => l.family)
+    links?: FamilyLink[];
 }
