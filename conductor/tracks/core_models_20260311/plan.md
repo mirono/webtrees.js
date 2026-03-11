@@ -1,7 +1,7 @@
 # Implementation Plan: core_models_20260311
 
 ## Phase 1: Core Data Models
-- [ ] Task: Backend - Implement `Individual` entity
+- [x] Task: Backend - Implement `Individual` entity [4c9be09]
     - [ ] Create `Individual` entity with standard GEDCOM fields (id, names, sex, birth, death)
     - [ ] Add basic tests for the `Individual` entity
 - [ ] Task: Backend - Implement `Family` entity
