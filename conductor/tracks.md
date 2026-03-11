@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Implement core Individual and Family data models and basic individual view**
+- [x] **Track: Implement core Individual and Family data models and basic individual view**
   *Link: [./tracks/core_models_20260311/](./tracks/core_models_20260311/)*
