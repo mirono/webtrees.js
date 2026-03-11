@@ -1,0 +1,23 @@
+{
+  "language": "en-US",
+  "databaseConfig": {
+    "connectionType": "network",
+    "serverName": "",
+    "port": "3306",
+    "username": "",
+    "password": "",
+    "databaseName": "webtrees",
+    "tablePrefix": "wt_"
+  },
+  "databaseType": "sqlite",
+  "admin": {
+    "name": "Miron Ophir",
+    "username": "mirono",
+    "password": "dor&5910",
+    "email": "mirono@gmail.com"
+  },
+  "familyTree": {
+    "title": "My family tree",
+    "url": "tree1"
+  }
+}
