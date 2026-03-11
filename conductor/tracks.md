@@ -1,0 +1,8 @@
+# Project Tracks
+
+This file tracks all major tracks for the project. Each track has its own detailed plan in its respective folder.
+
+---
+
+- [ ] **Track: Implement core Individual and Family data models and basic individual view**
+  *Link: [./tracks/core_models_20260311/](./tracks/core_models_20260311/)*
