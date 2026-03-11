@@ -4,7 +4,7 @@
 - [x] Task: Backend - Implement `Individual` entity [4c9be09]
     - [ ] Create `Individual` entity with standard GEDCOM fields (id, names, sex, birth, death)
     - [ ] Add basic tests for the `Individual` entity
-- [ ] Task: Backend - Implement `Family` entity
+- [x] Task: Backend - Implement `Family` entity [ae59a5a]
     - [ ] Create `Family` entity with relationships (HUSB, WIFE, CHIL)
     - [ ] Add basic tests for the `Family` entity
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Core Data Models' (Protocol in workflow.md)
