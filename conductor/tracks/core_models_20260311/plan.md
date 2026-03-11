@@ -10,7 +10,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Core Data Models' (Protocol in workflow.md) [938f916]
 
 ## Phase 2: API Endpoints
-- [ ] Task: Backend - Individual controller & service
+- [x] Task: Backend - Individual controller & service [eed942c]
     - [ ] Implement `getIndividualById` and `getAllIndividuals` endpoints
     - [ ] Add unit tests for the controller and service
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: API Endpoints' (Protocol in workflow.md)
