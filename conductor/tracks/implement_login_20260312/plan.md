@@ -9,14 +9,14 @@
     - [x] Implement: Install dependencies (`@nestjs/jwt`, `@nestjs/passport`, `passport-jwt`, `bcrypt`) and configure Passport with JWT strategy
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Backend Auth Infrastructure' (Protocol in workflow.md) [acf8dc6]
 
-## Phase 2: Backend Login Logic
+## Phase 2: Backend Login Logic [checkpoint: 5452f56]
 - [x] Task: Implement login endpoint [2445e15]
-    - [ ] Write Tests: Verify login endpoint returns JWT for valid credentials and 401 for invalid ones
-    - [ ] Implement: Logic in `AuthService` to validate user against the `users` table and issue a JWT
+    - [x] Write Tests: Verify login endpoint returns JWT for valid credentials and 401 for invalid ones
+    - [x] Implement: Logic in `AuthService` to validate user against the `users` table and issue a JWT
 - [x] Task: User state verification (Profile endpoint) [f4b615e]
-    - [ ] Write Tests: Verify `/auth/profile` returns user data when called with a valid JWT
-    - [ ] Implement: Create a protected endpoint to verify the auth state from the frontend
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Backend Login Logic' (Protocol in workflow.md)
+    - [x] Write Tests: Verify `/auth/profile` returns user data when called with a valid JWT
+    - [x] Implement: Create a protected endpoint to verify the auth state from the frontend
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Backend Login Logic' (Protocol in workflow.md) [5452f56]
 
 ## Phase 3: Frontend Login Integration
 - [ ] Task: Create dedicated login page
