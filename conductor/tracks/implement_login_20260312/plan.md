@@ -13,7 +13,7 @@
 - [x] Task: Implement login endpoint [2445e15]
     - [ ] Write Tests: Verify login endpoint returns JWT for valid credentials and 401 for invalid ones
     - [ ] Implement: Logic in `AuthService` to validate user against the `users` table and issue a JWT
-- [ ] Task: User state verification (Profile endpoint)
+- [x] Task: User state verification (Profile endpoint) [f4b615e]
     - [ ] Write Tests: Verify `/auth/profile` returns user data when called with a valid JWT
     - [ ] Implement: Create a protected endpoint to verify the auth state from the frontend
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Backend Login Logic' (Protocol in workflow.md)
