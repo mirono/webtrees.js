@@ -19,7 +19,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Backend Login Logic' (Protocol in workflow.md) [5452f56]
 
 ## Phase 3: Frontend Login Integration
-- [ ] Task: Create dedicated login page
+- [x] Task: Create dedicated login page [395ff34]
     - [ ] Write Tests: Verify the `/login` route renders correctly and contains the login form
     - [ ] Implement: Create `frontend/app/login/page.tsx` using the existing UI patterns
 - [ ] Task: Connect homepage `LoginDialog` to backend
