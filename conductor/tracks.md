@@ -9,5 +9,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Implement login in the homepage and in a dedicated login screen. It should accept username and password. The UI mock is already there.**
+- [~] **Track: Implement login in the homepage and in a dedicated login screen. It should accept username and password. The UI mock is already there.**
   *Link: [./tracks/implement_login_20260312/](./tracks/implement_login_20260312/)*
