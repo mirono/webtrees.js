@@ -58,4 +58,13 @@ describe('AuthController', () => {
         .rejects.toThrow(UnauthorizedException);
     });
   });
+
+  describe('getProfile', () => {
+    it('should return the user from the request', () => {
+      const user = { userId: 1, username: 'test' };
+      const req = { user };
+      const result = controller.getProfile(req);
+      expect(result).toEqual(user);
+    });
+  });
 });
