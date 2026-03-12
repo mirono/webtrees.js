@@ -1,13 +1,13 @@
 # Implementation Plan: implement_login_20260312
 
-## Phase 1: Backend Auth Infrastructure
+## Phase 1: Backend Auth Infrastructure [checkpoint: acf8dc6]
 - [x] Task: Create `AuthModule` and `AuthService` structure [7ad098b]
-    - [ ] Write Tests: Verify `AuthModule` can be initialized and dependencies are injected
-    - [ ] Implement: Create `AuthModule`, `AuthService`, and `AuthController` shells
+    - [x] Write Tests: Verify `AuthModule` can be initialized and dependencies are injected
+    - [x] Implement: Create `AuthModule`, `AuthService`, and `AuthController` shells
 - [x] Task: Configure JWT and Bcrypt [d96a3bf]
-    - [ ] Write Tests: Verify Bcrypt hashing/comparison and JWT signing/verification
-    - [ ] Implement: Install dependencies (`@nestjs/jwt`, `@nestjs/passport`, `passport-jwt`, `bcrypt`) and configure Passport with JWT strategy
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Backend Auth Infrastructure' (Protocol in workflow.md)
+    - [x] Write Tests: Verify Bcrypt hashing/comparison and JWT signing/verification
+    - [x] Implement: Install dependencies (`@nestjs/jwt`, `@nestjs/passport`, `passport-jwt`, `bcrypt`) and configure Passport with JWT strategy
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Backend Auth Infrastructure' (Protocol in workflow.md) [acf8dc6]
 
 ## Phase 2: Backend Login Logic
 - [ ] Task: Implement login endpoint
