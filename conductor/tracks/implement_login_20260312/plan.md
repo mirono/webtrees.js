@@ -10,7 +10,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Backend Auth Infrastructure' (Protocol in workflow.md) [acf8dc6]
 
 ## Phase 2: Backend Login Logic
-- [ ] Task: Implement login endpoint
+- [x] Task: Implement login endpoint [2445e15]
     - [ ] Write Tests: Verify login endpoint returns JWT for valid credentials and 401 for invalid ones
     - [ ] Implement: Logic in `AuthService` to validate user against the `users` table and issue a JWT
 - [ ] Task: User state verification (Profile endpoint)
