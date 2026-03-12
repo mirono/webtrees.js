@@ -4,7 +4,7 @@
 - [x] Task: Create `AuthModule` and `AuthService` structure [7ad098b]
     - [ ] Write Tests: Verify `AuthModule` can be initialized and dependencies are injected
     - [ ] Implement: Create `AuthModule`, `AuthService`, and `AuthController` shells
-- [ ] Task: Configure JWT and Bcrypt
+- [x] Task: Configure JWT and Bcrypt [d96a3bf]
     - [ ] Write Tests: Verify Bcrypt hashing/comparison and JWT signing/verification
     - [ ] Implement: Install dependencies (`@nestjs/jwt`, `@nestjs/passport`, `passport-jwt`, `bcrypt`) and configure Passport with JWT strategy
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Backend Auth Infrastructure' (Protocol in workflow.md)
