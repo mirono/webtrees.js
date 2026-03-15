@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import LoginDialog from "@/components/auth/LoginDialog";
+import { useAuth } from "@/contexts/AuthContext";
 import {
     Sun,
     Moon,
@@ -21,6 +22,7 @@ import {
 } from "lucide-react";
 
 const Home = () => {
+    const { user, logout } = useAuth();
     const [theme, setTheme] = useState<"light" | "dark">("light");
     const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -64,14 +66,23 @@ const Home = () => {
                                 <span className="hidden sm:inline">Language</span>
                             </Button>
 
-                            <LoginDialog
-                                trigger={
-                                    <Button variant="ghost" size="sm">
-                                        <LogIn className="h-4 w-4 mr-2" />
-                                        <span className="hidden sm:inline">Sign in</span>
+                            {user ? (
+                                <div className="flex items-center gap-2">
+                                    <span className="text-sm font-medium">{user.username}</span>
+                                    <Button variant="ghost" size="sm" onClick={logout}>
+                                        Sign out
                                     </Button>
-                                }
-                            />
+                                </div>
+                            ) : (
+                                <LoginDialog
+                                    trigger={
+                                        <Button variant="ghost" size="sm">
+                                            <LogIn className="h-4 w-4 mr-2" />
+                                            <span className="hidden sm:inline">Sign in</span>
+                                        </Button>
+                                    }
+                                />
+                            )}
 
                             <Button variant="ghost" size="sm">
                                 <Search className="h-4 w-4" />

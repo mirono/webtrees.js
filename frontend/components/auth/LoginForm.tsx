@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface LoginFormProps {
   onSuccess?: () => void;
@@ -17,6 +18,7 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const { login } = useAuth();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,15 +44,14 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
       const data = await response.json();
 
       if (response.ok) {
-        // TODO: Save token and update global state
-        localStorage.setItem("access_token", data.access_token);
+        login(data.access_token);
         toast({
           title: "Success",
           description: "Successfully logged in",
         });
         if (onSuccess) onSuccess();
       } else {
-        toast({
+...
           title: "Login Failed",
           description: data.message || "Invalid credentials",
           variant: "destructive",

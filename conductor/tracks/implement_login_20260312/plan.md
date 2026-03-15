@@ -22,7 +22,7 @@
 - [x] Task: Create dedicated login page [395ff34]
     - [ ] Write Tests: Verify the `/login` route renders correctly and contains the login form
     - [ ] Implement: Create `frontend/app/login/page.tsx` using the existing UI patterns
-- [ ] Task: Connect homepage `LoginDialog` to backend
+- [~] Task: Connect homepage `LoginDialog` to backend
     - [ ] Write Tests: Verify that submitting the form calls the backend API and updates the local state
     - [ ] Implement: Add fetch/Query call to `LoginDialog` and update the global authentication context
 - [ ] Task: Persistent Auth State
