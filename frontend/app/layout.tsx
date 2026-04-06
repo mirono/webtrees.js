@@ -6,8 +6,11 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Setup Wizard",
-  description: "Application setup wizard",
+  title: {
+    template: "%s — webtrees.js",
+    default: "webtrees.js",
+  },
+  description: "Modern collaborative genealogy application",
 };
 
 export default function RootLayout({
