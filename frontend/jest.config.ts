@@ -2,7 +2,6 @@ import type { Config } from "jest";
 import nextJest from "next/jest.js";
 
 const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.ts and .env files
   dir: "./",
 });
 
@@ -16,6 +15,10 @@ const config: Config = {
   testMatch: [
     "**/__tests__/**/*.[jt]s?(x)",
     "**/?(*.)+(spec|test).[jt]s?(x)",
+  ],
+  testPathIgnorePatterns: [
+    "/node_modules/",
+    "/__tests__/e2e/",
   ],
 };
 

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import SetupWizard from './SetupWizard';
-import MainApp from './MainApp';
+import HomeContent from './HomeContent';
 import { Loader2 } from 'lucide-react';
 
 const AppWrapper = () => {
@@ -58,7 +58,7 @@ const AppWrapper = () => {
     }
 
     if (isConfigured) {
-        return <MainApp />;
+        return <HomeContent />;
     }
 
     return <SetupWizard onSaveConfig={saveConfiguration} onEnterApp={enterMainApp} />;

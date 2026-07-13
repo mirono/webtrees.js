@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Database } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import type { DatabaseType as DBType } from "../SetupWizard";
+import type { DatabaseType as DBType } from "@/hooks/useSetupConfiguration";
 
 interface DatabaseTypeProps {
   onNext: (data: { databaseType: DBType }) => void;

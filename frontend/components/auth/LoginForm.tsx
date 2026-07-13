@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
+import { authApi } from "@/lib/api";
 import { useAuth } from "@/contexts/AuthContext";
 
 interface LoginFormProps {
@@ -19,6 +21,7 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const { login } = useAuth();
+  const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,34 +36,15 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
 
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:3001/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        login(data.access_token);
-        toast({
-          title: "Success",
-          description: "Successfully logged in",
-        });
-        if (onSuccess) onSuccess();
-      } else {
-...
-          title: "Login Failed",
-          description: data.message || "Invalid credentials",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
+      await authApi.login(username, password);
+      login("");
+      toast({ title: "Success", description: "Successfully logged in" });
+      if (onSuccess) onSuccess();
+      else router.push("/");
+    } catch (err) {
       toast({
-        title: "Error",
-        description: "An unexpected error occurred",
+        title: "Login Failed",
+        description: (err as Error).message || "Invalid credentials",
         variant: "destructive",
       });
     } finally {

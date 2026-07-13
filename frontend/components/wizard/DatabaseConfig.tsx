@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Database } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import type { DatabaseType } from "../SetupWizard";
+import type { DatabaseType } from "@/hooks/useSetupConfiguration";
 
 interface DatabaseConfigProps {
   databaseType: DatabaseType;
